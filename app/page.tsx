@@ -1,3 +1,70 @@
+function MailIcon() {
+  return (
+    <svg
+      className="contact-icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path fill="#4285f4" d="M3 5.5 12 12v3L3 8.5Z" />
+      <path fill="#34a853" d="M3 5.5v13h3v-11Z" />
+      <path fill="#fbbc04" d="M21 5.5v13h-3v-11Z" />
+      <path fill="#ea4335" d="M3 5.5 12 12l9-6.5v3L12 15 3 8.5Z" />
+    </svg>
+  );
+}
+
+function GitHubIcon() {
+  return (
+    <svg
+      className="contact-icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        fill="#181717"
+        d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"
+      />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg
+      className="contact-icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect width="24" height="24" rx="2.5" fill="#0a66c2" />
+      <circle cx="6.8" cy="7.1" r="1.55" fill="#fff" />
+      <path
+        fill="#fff"
+        d="M5.45 9.8h2.7v8.75h-2.7Zm4.35 0h2.6V11c.55-.85 1.55-1.5 2.95-1.5 3 0 3.55 1.95 3.55 4.5v4.55h-2.7V14.5c0-1.15 0-2.65-1.65-2.65s-1.95 1.25-1.95 2.55v4.15H9.8Z"
+      />
+    </svg>
+  );
+}
+
+function ScholarIcon() {
+  return (
+    <svg
+      className="contact-icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path fill="#4285f4" d="M12 2 1 8l11 6 9-4.9V17h2V8Z" />
+      <path
+        fill="#a8c7fa"
+        d="M5 12.3V17c0 2.2 3.1 4 7 4s7-1.8 7-4v-4.7l-7 3.8Z"
+      />
+    </svg>
+  );
+}
+
 const news = [
   {
     date: "2026/05",
@@ -351,12 +418,22 @@ export default function Home() {
             SSD.
           </p>
           <nav className="contact-links" aria-label="Contact links">
-            <a href="mailto:cguo51@asu.edu">Email</a>
-            <a href="https://github.com/Change72">GitHub</a>
-            <a href="https://www.linkedin.com/in/chang-guo-systems/">
-              LinkedIn
+            <a href="mailto:cguo51@asu.edu">
+              <MailIcon />
+              <span>Mail</span>
             </a>
-            <a href="https://orcid.org/0009-0001-4561-9945">ORCID</a>
+            <a href="https://github.com/Change72">
+              <GitHubIcon />
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/chang-guo-systems/">
+              <LinkedInIcon />
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://scholar.google.com/citations?user=tUgdcCoAAAAJ&hl=en">
+              <ScholarIcon />
+              <span>Google Scholar</span>
+            </a>
           </nav>
         </div>
       </header>

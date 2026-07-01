@@ -99,7 +99,27 @@ h1 {
   gap: 7px 22px;
   margin-top: 20px;
   font-size: 0.96rem;
-  font-weight: 600;
+  font-weight: 400;
+}
+
+.contact-links a {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+}
+
+.contact-links a:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
 }
 
 .section {
