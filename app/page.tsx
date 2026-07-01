@@ -88,6 +88,11 @@ const selectedResearch = [
     title:
       "LegoIndex: A Scalable and Modular Indexing Framework for Efficient Analysis of Extreme-Scale Particle Data",
     award: "ACM HPDC 2025 Best Student Paper Award",
+    image: "./research/legoindex-figure8.png",
+    imageAlt:
+      "LegoIndex architecture with a cell index and customizable multi-level in-cell indexes",
+    imageWidth: 990,
+    imageHeight: 463,
     authors: (
       <>
         <strong>Chang Guo</strong>, Ning Yan, Lipeng Wan, and Zhichao Cao
@@ -102,6 +107,11 @@ const selectedResearch = [
     title:
       "Mosaic-Cache — Unlocking the Unusable: A Proactive Caching Framework for Reusing Partial Overlapped Data",
     award: "",
+    image: "./research/mosaic-cache-figure2.png",
+    imageAlt:
+      "Mosaic-Cache architecture with overlap-aware partitioning, metadata management, fetch planning, and asynchronous merging",
+    imageWidth: 990,
+    imageHeight: 571,
     authors: (
       <>
         <strong>Chang Guo</strong>, Norbert Podhorszki, Greg Eisenhauer, Zhiwen
@@ -195,26 +205,15 @@ const experience = [
       "Built self-describing KV events for vLLM native CPU offloading, enabling Dynamo and llm-d to track CPU-resident KV blocks for routing.",
       "Upstreamed the design across vLLM, Dynamo, and llm-d, and validated KV-aware routing in normal-block and chunk modes.",
     ],
+    linksLabel: "Selected PRs",
     links: [
       {
         label: "vLLM #43468",
         href: "https://github.com/vllm-project/vllm/pull/43468",
       },
       {
-        label: "vLLM #43756",
-        href: "https://github.com/vllm-project/vllm/pull/43756",
-      },
-      {
         label: "Dynamo #10368",
         href: "https://github.com/ai-dynamo/dynamo/pull/10368",
-      },
-      {
-        label: "Dynamo #10157",
-        href: "https://github.com/ai-dynamo/dynamo/pull/10157",
-      },
-      {
-        label: "llm-d #661",
-        href: "https://github.com/llm-d/llm-d-kv-cache/pull/661",
       },
       {
         label: "llm-d #680",
@@ -230,6 +229,7 @@ const experience = [
     bullets: [
       "Co-developed GPU-centric storage for LLM checkpointing and KV cache offloading, integrated with LMCache and vLLM.",
     ],
+    linksLabel: "",
     links: [],
   },
   {
@@ -239,12 +239,13 @@ const experience = [
     role: "Research Intern, ADIOS2",
     bullets: [
       "Built client-side caching for remote scientific data, including partial-overlap reuse and metadata indexing.",
-      "Developed Mosaic-Cache during the internship; the work appeared at ACM HotStorage '25 and was upstreamed to ADIOS2.",
+      "Developed Mosaic-Cache during the internship; the work appeared at ACM HotStorage '25 and was upstreamed through three merged ADIOS2 pull requests.",
     ],
+    linksLabel: "Selected PR",
     links: [
       {
-        label: "HotStorage '25",
-        href: "https://doi.org/10.1145/3736548.3737839",
+        label: "ADIOS2 #4210",
+        href: "https://github.com/ornladios/ADIOS2/pull/4210",
       },
     ],
   },
@@ -256,6 +257,7 @@ const experience = [
     bullets: [
       "Built NLP pipelines for information extraction, topic modeling, and sentiment analysis over financial documents and business news.",
     ],
+    linksLabel: "",
     links: [],
   },
 ];
@@ -284,6 +286,19 @@ const education = [
   },
 ];
 
+const teaching = [
+  {
+    course: "CSE 511: Data Processing at Scale",
+    dates: "Fall 2024, Fall 2025",
+    role: "Teaching Assistant · Graduate-level",
+  },
+  {
+    course: "CSE 330: Operating Systems",
+    dates: "Fall 2023",
+    role: "Teaching Assistant · Undergraduate-level",
+  },
+];
+
 export default function Home() {
   return (
     <main className="site-shell">
@@ -307,9 +322,9 @@ export default function Home() {
           <p>
             I am a PhD Candidate in Computer Science at Arizona State
             University, advised by Prof.{" "}
-            <a href="https://search.asu.edu/profile/4082902">Zhichao Cao</a>. I
-            earned a B.E. in Automation and a B.B.A. in Business
-            Administration from Tsinghua University.
+            <a href="https://search.asu.edu/profile/4082902">Zhichao Cao</a>.
+            Before joining ASU, I earned a B.E. in Automation and a B.B.A. in
+            Business Administration from Tsinghua University.
           </p>
           <p>
             My research focuses on indexing, caching, and storage systems for
@@ -365,8 +380,25 @@ export default function Home() {
         <div className="publication-list">
           {selectedResearch.map((paper) => (
             <article className="publication" key={paper.title}>
-              <div className="publication-marker" aria-hidden="true">
-                {paper.venue}
+              <div
+                className={
+                  paper.image
+                    ? "publication-marker publication-marker-image"
+                    : "publication-marker"
+                }
+              >
+                {paper.image ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    className="publication-image"
+                    src={paper.image}
+                    alt={paper.imageAlt}
+                    width={paper.imageWidth}
+                    height={paper.imageHeight}
+                  />
+                ) : (
+                  paper.venue
+                )}
               </div>
               <div>
                 <h3>
@@ -410,6 +442,11 @@ export default function Home() {
               </ul>
               {item.links.length ? (
                 <p className="experience-links">
+                  {item.linksLabel ? (
+                    <span className="experience-links-label">
+                      {item.linksLabel}:
+                    </span>
+                  ) : null}
                   {item.links.map((link) => (
                     <a href={link.href} key={link.href}>
                       [{link.label}]
@@ -435,6 +472,21 @@ export default function Home() {
               </div>
               <p className="role">{item.degree}</p>
               {item.note ? <p>{item.note}</p> : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="teaching-heading">
+        <h2 id="teaching-heading">Teaching</h2>
+        <div className="timeline-list">
+          {teaching.map((item) => (
+            <article className="timeline-item" key={item.course}>
+              <div className="timeline-heading">
+                <h3>{item.course}</h3>
+                <time>{item.dates}</time>
+              </div>
+              <p className="role">{item.role}</p>
             </article>
           ))}
         </div>

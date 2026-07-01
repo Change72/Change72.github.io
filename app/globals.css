@@ -165,15 +165,16 @@ h1 {
 
 .publication {
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr);
-  gap: 22px;
+  grid-template-columns: 330px minmax(0, 1fr);
+  gap: 28px;
   align-items: start;
 }
 
 .publication-marker {
   display: grid;
-  min-height: 78px;
+  aspect-ratio: 1.9 / 1;
   place-items: center;
+  padding: 18px;
   border: 1px solid #d0d0d0;
   background: #faf8f9;
   color: var(--accent);
@@ -181,6 +182,21 @@ h1 {
   font-weight: 700;
   letter-spacing: 0.02em;
   text-align: center;
+}
+
+.publication-marker.publication-marker-image {
+  aspect-ratio: auto;
+  overflow: hidden;
+  padding: 0;
+  background: #ffffff;
+}
+
+.publication-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
 .publication h3 {
@@ -249,6 +265,11 @@ h1 {
   gap: 5px 13px;
   margin: 8px 0 0;
   font-size: 0.92rem;
+}
+
+.experience-links-label {
+  color: var(--muted);
+  font-weight: 600;
 }
 
 .timeline-item {
@@ -328,14 +349,14 @@ footer {
   }
 
   .publication {
-    grid-template-columns: 82px minmax(0, 1fr);
+    grid-template-columns: 1fr;
     gap: 14px;
   }
 
   .publication-marker {
-    min-height: 66px;
-    padding: 6px;
-    font-size: 0.76rem;
+    width: min(100%, 380px);
+    padding: 12px;
+    font-size: 0.82rem;
   }
 
   .project {
