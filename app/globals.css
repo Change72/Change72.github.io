@@ -146,6 +146,18 @@ h1 {
   font-variant-numeric: tabular-nums;
 }
 
+.news-award {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.news-links {
+  display: inline-flex;
+  gap: 10px;
+  margin-left: 10px;
+  font-size: 0.92rem;
+}
+
 .publication-list {
   display: grid;
   gap: 26px;
@@ -178,19 +190,26 @@ h1 {
   line-height: 1.35;
 }
 
+.publication-paper-link {
+  margin-left: 9px;
+  font-size: 0.92rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
 .publication p {
   margin-bottom: 5px;
+}
+
+.publication-award {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 700;
 }
 
 .authors {
   color: #333333;
   font-size: 0.94rem;
-}
-
-.paper-links {
-  display: flex;
-  gap: 12px;
-  font-size: 0.92rem;
 }
 
 .project-list,
@@ -224,6 +243,14 @@ h1 {
   font-size: 0.92rem;
 }
 
+.experience-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 13px;
+  margin: 8px 0 0;
+  font-size: 0.92rem;
+}
+
 .timeline-item {
   padding-bottom: 2px;
 }
@@ -251,14 +278,16 @@ h1 {
 }
 
 .timeline-item ul,
-.award-list {
+.award-list,
+.service-list {
   margin: 0;
   padding-left: 22px;
   list-style-type: square;
 }
 
 .timeline-item li,
-.award-list li {
+.award-list li,
+.service-list li {
   margin-bottom: 5px;
   padding-left: 4px;
 }
