@@ -262,9 +262,16 @@ h1 {
 .experience-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px 13px;
+  gap: 5px 18px;
   margin: 8px 0 0;
   font-size: 0.92rem;
+}
+
+.experience-link-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 5px 13px;
+  min-width: 0;
 }
 
 .experience-links-label {
@@ -283,6 +290,19 @@ h1 {
   justify-content: space-between;
 }
 
+.experience-subheading {
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 3px 0 7px;
+}
+
+.experience-subheading .role {
+  min-width: 0;
+  margin: 0;
+}
+
 .timeline-heading time {
   flex: 0 0 auto;
   color: #333333;
@@ -290,6 +310,15 @@ h1 {
   font-style: italic;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
+}
+
+.timeline-location {
+  flex: 0 0 auto;
+  color: #555555;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.35;
+  white-space: nowrap;
 }
 
 .role {
@@ -371,6 +400,20 @@ footer {
   .timeline-heading time {
     display: block;
     margin-top: 2px;
+  }
+
+  .experience-heading {
+    display: flex;
+    gap: 12px;
+  }
+
+  .experience-heading time {
+    margin-top: 0;
+    text-align: right;
+  }
+
+  .experience-subheading {
+    gap: 12px;
   }
 
   footer {

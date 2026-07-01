@@ -101,6 +101,8 @@ const selectedResearch = [
     links: [
       { label: "paper", href: "https://doi.org/10.1145/3731545.3731591" },
     ],
+    pptHref:
+      "https://hpdc.sci.utah.edu/2025/assets/slides/main_session/guo.pdf",
   },
   {
     venue: "HotStorage '25",
@@ -121,6 +123,7 @@ const selectedResearch = [
     links: [
       { label: "paper", href: "https://doi.org/10.1145/3736548.3737839" },
     ],
+    pptHref: "",
   },
 ];
 
@@ -201,10 +204,12 @@ const experience = [
     href: "https://github.com/ai-dynamo/dynamo",
     dates: "May 2026 - Present",
     role: "Software Engineering Intern",
+    location: "Santa Clara, CA",
     bullets: [
       "Built self-describing KV events for vLLM native CPU offloading, enabling Dynamo and llm-d to track CPU-resident KV blocks for routing.",
       "Upstreamed the design across vLLM, Dynamo, and llm-d, and validated KV-aware routing in normal-block and chunk modes.",
     ],
+    paper: null,
     linksLabel: "Selected PRs",
     links: [
       {
@@ -226,9 +231,11 @@ const experience = [
     href: "https://www.bytedance.com/en/",
     dates: "May 2025 - Aug 2025",
     role: "Research Intern",
+    location: "San Jose, CA",
     bullets: [
       "Co-developed GPU-centric storage for LLM checkpointing and KV cache offloading, integrated with LMCache and vLLM.",
     ],
+    paper: null,
     linksLabel: "",
     links: [],
   },
@@ -237,10 +244,15 @@ const experience = [
     href: "https://www.ornl.gov/",
     dates: "Summers 2023 and 2024",
     role: "Research Intern, ADIOS2",
+    location: "Oak Ridge, TN",
     bullets: [
       "Built client-side caching for remote scientific data, including partial-overlap reuse and metadata indexing.",
       "Developed Mosaic-Cache during the internship; the work appeared at ACM HotStorage '25 and was upstreamed through three merged ADIOS2 pull requests.",
     ],
+    paper: {
+      label: "HotStorage '25",
+      href: "https://doi.org/10.1145/3736548.3737839",
+    },
     linksLabel: "Selected PR",
     links: [
       {
@@ -254,9 +266,11 @@ const experience = [
     href: "https://www.caixinglobal.com/",
     dates: "Aug 2018 - Jul 2022",
     role: "Algorithm Engineer",
+    location: "Beijing, China",
     bullets: [
       "Built NLP pipelines for information extraction, topic modeling, and sentiment analysis over financial documents and business news.",
     ],
+    paper: null,
     linksLabel: "",
     links: [],
   },
@@ -412,6 +426,14 @@ export default function Home() {
                       [{link.label}]
                     </a>
                   ))}
+                  {paper.pptHref ? (
+                    <a
+                      className="publication-paper-link"
+                      href={paper.pptHref}
+                    >
+                      [ppt]
+                    </a>
+                  ) : null}
                 </h3>
                 {paper.award ? (
                   <p className="publication-award">{paper.award}</p>
@@ -428,30 +450,45 @@ export default function Home() {
         <div className="timeline-list">
           {experience.map((item) => (
             <article className="timeline-item" key={item.organization}>
-              <div className="timeline-heading">
+              <div className="timeline-heading experience-heading">
                 <h3>
                   <a href={item.href}>{item.organization}</a>
                 </h3>
                 <time>{item.dates}</time>
               </div>
-              <p className="role">{item.role}</p>
+              <div className="experience-subheading">
+                <p className="role">{item.role}</p>
+                {item.location ? (
+                  <span className="timeline-location">{item.location}</span>
+                ) : null}
+              </div>
               <ul>
                 {item.bullets.map((bullet) => (
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
-              {item.links.length ? (
+              {item.paper || item.links.length ? (
                 <p className="experience-links">
-                  {item.linksLabel ? (
-                    <span className="experience-links-label">
-                      {item.linksLabel}:
+                  {item.paper ? (
+                    <span className="experience-link-group">
+                      <span className="experience-links-label">Paper:</span>
+                      <a href={item.paper.href}>[{item.paper.label}]</a>
                     </span>
                   ) : null}
-                  {item.links.map((link) => (
-                    <a href={link.href} key={link.href}>
-                      [{link.label}]
-                    </a>
-                  ))}
+                  {item.links.length ? (
+                    <span className="experience-link-group">
+                      {item.linksLabel ? (
+                        <span className="experience-links-label">
+                          {item.linksLabel}:
+                        </span>
+                      ) : null}
+                      {item.links.map((link) => (
+                        <a href={link.href} key={link.href}>
+                          [{link.label}]
+                        </a>
+                      ))}
+                    </span>
+                  ) : null}
                 </p>
               ) : null}
             </article>
