@@ -151,7 +151,7 @@ const news = [
 
 const selectedResearch = [
   {
-    venue: "HPDC '25",
+    venue: "HPDC'25",
     title:
       "LegoIndex: A Scalable and Modular Indexing Framework for Efficient Analysis of Extreme-Scale Particle Data",
     award: "ACM HPDC 2025 Best Student Paper Award",
@@ -172,7 +172,7 @@ const selectedResearch = [
       "https://hpdc.sci.utah.edu/2025/assets/slides/main_session/guo.pdf",
   },
   {
-    venue: "HotStorage '25",
+    venue: "HotStorage'25",
     title:
       "Mosaic-Cache — Unlocking the Unusable: A Proactive Caching Framework for Reusing Partial Overlapped Data",
     award: "",
@@ -190,7 +190,7 @@ const selectedResearch = [
     links: [
       { label: "paper", href: "https://doi.org/10.1145/3736548.3737839" },
     ],
-    pptHref: "",
+    pptHref: "./research/mosaic-cache-hotstorage25.pdf",
   },
 ];
 
@@ -493,6 +493,7 @@ export default function Home() {
               </div>
               <div>
                 <h3>
+                  <span className="publication-venue">[{paper.venue}]</span>{" "}
                   {paper.title}
                   {paper.links.map((link) => (
                     <a
