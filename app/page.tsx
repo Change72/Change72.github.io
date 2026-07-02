@@ -267,8 +267,10 @@ const openSourceProjects = [
 
 const experience = [
   {
-    organization: "NVIDIA Dynamo",
-    href: "https://github.com/ai-dynamo/dynamo",
+    organization: "NVIDIA",
+    href: "https://www.nvidia.com/",
+    team: "Dynamo",
+    teamHref: "https://github.com/ai-dynamo/dynamo",
     dates: "May 2026 - Present",
     role: "Software Engineering Intern",
     location: "Santa Clara, CA",
@@ -296,6 +298,8 @@ const experience = [
   {
     organization: "ByteDance",
     href: "https://www.bytedance.com/en/",
+    team: "",
+    teamHref: "",
     dates: "May 2025 - Aug 2025",
     role: "Research Intern",
     location: "San Jose, CA",
@@ -309,8 +313,10 @@ const experience = [
   {
     organization: "Oak Ridge National Laboratory",
     href: "https://www.ornl.gov/",
+    team: "ADIOS2",
+    teamHref: "https://github.com/ornladios/ADIOS2",
     dates: "Summers 2023 and 2024",
-    role: "Research Intern, ADIOS2",
+    role: "Research Intern",
     location: "Oak Ridge, TN",
     bullets: [
       "Built client-side caching for remote scientific data, including partial-overlap reuse and metadata indexing.",
@@ -331,6 +337,8 @@ const experience = [
   {
     organization: "Caixin Data",
     href: "https://www.caixinglobal.com/",
+    team: "",
+    teamHref: "",
     dates: "Aug 2018 - Jul 2022",
     role: "Algorithm Engineer",
     location: "Beijing, China",
@@ -531,6 +539,13 @@ export default function Home() {
               <div className="timeline-heading experience-heading">
                 <h3>
                   <a href={item.href}>{item.organization}</a>
+                  {item.team ? (
+                    <>
+                      {" ("}
+                      <a href={item.teamHref}>{item.team}</a>
+                      {")"}
+                    </>
+                  ) : null}
                 </h3>
                 <time>{item.dates}</time>
               </div>
