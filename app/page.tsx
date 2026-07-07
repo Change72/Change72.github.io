@@ -199,15 +199,15 @@ const openSourceProjects = [
     name: "vLLM",
     href: "https://github.com/vllm-project/vllm",
     description:
-      "Added self-describing events for CPU-offloaded KV cache, so external routers can track offloaded blocks without a second event stream.",
+      "Added self-describing CPU-offload KV events for external routers and established the event-ownership contract for multi-tier offloading.",
     links: [
       {
         label: "KV events",
         href: "https://github.com/vllm-project/vllm/pull/43468",
       },
       {
-        label: "benchmark",
-        href: "https://github.com/vllm-project/vllm/pull/43756",
+        label: "tier event contract",
+        href: "https://github.com/vllm-project/vllm/pull/46544",
       },
     ],
   },
@@ -623,7 +623,7 @@ export default function Home() {
       </section>
 
       <section className="section" aria-labelledby="opensource-heading">
-        <h2 id="opensource-heading">Open Source</h2>
+        <h2 id="opensource-heading">Selected Open-Source Contributions</h2>
         <div className="project-list">
           {openSourceProjects.map((project) => (
             <article className="project" key={project.name}>
