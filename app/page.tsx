@@ -199,15 +199,15 @@ const openSourceProjects = [
     name: "vLLM",
     href: "https://github.com/vllm-project/vllm",
     description:
-      "Added self-describing CPU-offload KV events for external routers and established the event-ownership contract for multi-tier offloading.",
+      "Added self-describing CPU-offload KV events for external routers, then extended tier-owned placement events to filesystem and object-store tiers.",
     links: [
       {
-        label: "KV events",
+        label: "CPU KV events",
         href: "https://github.com/vllm-project/vllm/pull/43468",
       },
       {
-        label: "tier event contract",
-        href: "https://github.com/vllm-project/vllm/pull/46544",
+        label: "FS/OBJ events",
+        href: "https://github.com/vllm-project/vllm/pull/47923",
       },
     ],
   },
