@@ -663,17 +663,24 @@ export default function Home() {
                 {project.linkGroups ? (
                   <div className="project-link-groups">
                     {project.linkGroups.map((group) => (
-                      <p className="project-contribution-line" key={group.label}>
-                        <span className="project-links-label">
-                          {group.label}:
-                        </span>{" "}
-                        {group.description}
-                        {group.links.map((link) => (
-                          <a href={link.href} key={link.href}>
-                            [{link.label}]
-                          </a>
-                        ))}
-                      </p>
+                      <div
+                        className="project-contribution-group"
+                        key={group.label}
+                      >
+                        <p className="project-contribution-line">
+                          <span className="project-links-label">
+                            {group.label}:
+                          </span>{" "}
+                          {group.description}
+                        </p>
+                        <p className="project-contribution-links">
+                          {group.links.map((link) => (
+                            <a href={link.href} key={link.href}>
+                              [{link.label}]
+                            </a>
+                          ))}
+                        </p>
+                      </div>
                     ))}
                   </div>
                 ) : (

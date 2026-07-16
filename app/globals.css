@@ -287,17 +287,28 @@ h1 {
 
 .project-link-groups {
   display: grid;
-  gap: 5px;
+  gap: 10px;
   margin-top: 0;
   font-size: 0.92rem;
 }
 
-.project-contribution-line {
+.project-contribution-group {
+  display: grid;
+  gap: 3px;
+}
+
+.project .project-contribution-line,
+.project .project-contribution-links {
   margin: 0;
 }
 
-.project-contribution-line a {
-  margin-left: 13px;
+.project-contribution-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 13px;
+}
+
+.project-contribution-links a {
   white-space: nowrap;
 }
 
