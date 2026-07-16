@@ -650,21 +650,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="teaching-heading">
-        <h2 id="teaching-heading">Teaching</h2>
-        <div className="timeline-list">
-          {teaching.map((item) => (
-            <article className="timeline-item" key={item.course}>
-              <div className="timeline-heading">
-                <h3>{item.course}</h3>
-                <time>{item.dates}</time>
-              </div>
-              <p className="role">{item.role}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="section" aria-labelledby="opensource-heading">
         <h2 id="opensource-heading">Selected Open-Source Contributions</h2>
         <div className="project-list">
@@ -701,6 +686,21 @@ export default function Home() {
                   </p>
                 )}
               </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="teaching-heading">
+        <h2 id="teaching-heading">Teaching</h2>
+        <div className="timeline-list">
+          {teaching.map((item) => (
+            <article className="timeline-item" key={item.course}>
+              <div className="timeline-heading">
+                <h3>{item.course}</h3>
+                <time>{item.dates}</time>
+              </div>
+              <p className="role">{item.role}</p>
             </article>
           ))}
         </div>
