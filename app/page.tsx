@@ -206,6 +206,7 @@ type OpenSourceProject = {
   links: ProjectLink[];
   linkGroups?: {
     label: string;
+    description: string;
     links: ProjectLink[];
   }[];
 };
@@ -214,12 +215,13 @@ const openSourceProjects: OpenSourceProject[] = [
   {
     name: "vLLM",
     href: "https://github.com/vllm-project/vllm",
-    description:
-      "Defined backend configuration boundaries and tier ownership for native KV offloading. Added self-describing placement events for external routers across CPU, filesystem, and object-store tiers.",
+    description: "",
     links: [],
     linkGroups: [
       {
         label: "Architecture",
+        description:
+          "Defined the backend configuration boundary and tier ownership for native KV offloading.",
         links: [
           {
             label: "config boundary",
@@ -233,6 +235,8 @@ const openSourceProjects: OpenSourceProject[] = [
       },
       {
         label: "Placement events",
+        description:
+          "Added self-describing events across CPU, filesystem, and object-store tiers so external routers can track offloaded KV blocks.",
         links: [
           {
             label: "CPU KV events",
@@ -670,20 +674,21 @@ export default function Home() {
                 <a href={project.href}>{project.name}</a>
               </h3>
               <div>
-                <p>{project.description}</p>
+                {project.description ? <p>{project.description}</p> : null}
                 {project.linkGroups ? (
                   <div className="project-link-groups">
                     {project.linkGroups.map((group) => (
-                      <span className="project-link-group" key={group.label}>
+                      <p className="project-contribution-line" key={group.label}>
                         <span className="project-links-label">
                           {group.label}:
-                        </span>
+                        </span>{" "}
+                        {group.description}
                         {group.links.map((link) => (
                           <a href={link.href} key={link.href}>
                             [{link.label}]
                           </a>
                         ))}
-                      </span>
+                      </p>
                     ))}
                   </div>
                 ) : (

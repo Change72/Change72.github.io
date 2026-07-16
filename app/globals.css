@@ -288,15 +288,17 @@ h1 {
 .project-link-groups {
   display: grid;
   gap: 5px;
-  margin-top: 5px;
+  margin-top: 0;
   font-size: 0.92rem;
 }
 
-.project-link-group {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 5px 13px;
-  min-width: 0;
+.project-contribution-line {
+  margin: 0;
+}
+
+.project-contribution-line a {
+  margin-left: 13px;
+  white-space: nowrap;
 }
 
 .project-links-label {
