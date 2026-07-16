@@ -194,24 +194,55 @@ const selectedResearch = [
   },
 ];
 
-const openSourceProjects = [
+type ProjectLink = {
+  label: string;
+  href: string;
+};
+
+type OpenSourceProject = {
+  name: string;
+  href: string;
+  description: string;
+  links: ProjectLink[];
+  linkGroups?: {
+    label: string;
+    links: ProjectLink[];
+  }[];
+};
+
+const openSourceProjects: OpenSourceProject[] = [
   {
     name: "vLLM",
     href: "https://github.com/vllm-project/vllm",
     description:
-      "Added self-describing CPU-offload KV events for external routers. Established tier-owned event handling and extended placement events to filesystem and object-store tiers.",
-    links: [
+      "Defined tier ownership and backend configuration boundaries for native KV offloading. Added self-describing placement events for external routers across CPU, filesystem, and object-store tiers.",
+    links: [],
+    linkGroups: [
       {
-        label: "CPU KV events",
-        href: "https://github.com/vllm-project/vllm/pull/43468",
+        label: "Architecture",
+        links: [
+          {
+            label: "tier ownership",
+            href: "https://github.com/vllm-project/vllm/pull/46544",
+          },
+          {
+            label: "config boundary",
+            href: "https://github.com/vllm-project/vllm/pull/48150",
+          },
+        ],
       },
       {
-        label: "tier event contract",
-        href: "https://github.com/vllm-project/vllm/pull/46544",
-      },
-      {
-        label: "FS/OBJ events",
-        href: "https://github.com/vllm-project/vllm/pull/47923",
+        label: "Placement events",
+        links: [
+          {
+            label: "CPU KV events",
+            href: "https://github.com/vllm-project/vllm/pull/43468",
+          },
+          {
+            label: "FS/OBJ events",
+            href: "https://github.com/vllm-project/vllm/pull/47923",
+          },
+        ],
       },
     ],
   },
@@ -636,13 +667,30 @@ export default function Home() {
               </h3>
               <div>
                 <p>{project.description}</p>
-                <p className="project-links">
-                  {project.links.map((link) => (
-                    <a href={link.href} key={link.href}>
-                      [{link.label}]
-                    </a>
-                  ))}
-                </p>
+                {project.linkGroups ? (
+                  <div className="project-link-groups">
+                    {project.linkGroups.map((group) => (
+                      <span className="project-link-group" key={group.label}>
+                        <span className="project-links-label">
+                          {group.label}:
+                        </span>
+                        {group.links.map((link) => (
+                          <a href={link.href} key={link.href}>
+                            [{link.label}]
+                          </a>
+                        ))}
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="project-links">
+                    {project.links.map((link) => (
+                      <a href={link.href} key={link.href}>
+                        [{link.label}]
+                      </a>
+                    ))}
+                  </p>
+                )}
               </div>
             </article>
           ))}
