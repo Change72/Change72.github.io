@@ -215,19 +215,19 @@ const openSourceProjects: OpenSourceProject[] = [
     name: "vLLM",
     href: "https://github.com/vllm-project/vllm",
     description:
-      "Defined tier ownership and backend configuration boundaries for native KV offloading. Added self-describing placement events for external routers across CPU, filesystem, and object-store tiers.",
+      "Defined backend configuration boundaries and tier ownership for native KV offloading. Added self-describing placement events for external routers across CPU, filesystem, and object-store tiers.",
     links: [],
     linkGroups: [
       {
         label: "Architecture",
         links: [
           {
-            label: "tier ownership",
-            href: "https://github.com/vllm-project/vllm/pull/46544",
-          },
-          {
             label: "config boundary",
             href: "https://github.com/vllm-project/vllm/pull/48150",
+          },
+          {
+            label: "tier ownership",
+            href: "https://github.com/vllm-project/vllm/pull/46544",
           },
         ],
       },
@@ -310,12 +310,16 @@ const experience = [
     role: "Software Engineering Intern",
     location: "Santa Clara, CA",
     bullets: [
-      "Built self-describing KV events for vLLM native CPU offloading, enabling Dynamo and llm-d to track CPU-resident KV blocks for routing.",
-      "Upstreamed the design across vLLM, Dynamo, and llm-d, and validated KV-aware routing in normal-block and chunk modes.",
+      "Defined a clean backend configuration boundary for vLLM native KV offloading. Moved cache-layout parsing into the connector and standardized the configuration passed to offloading backends.",
+      "Built self-describing KV events across vLLM, Dynamo, and llm-d. Enabled external routers to track CPU-offloaded blocks and validated routing in normal-block and chunk modes.",
     ],
     paper: null,
     linksLabel: "Selected PRs",
     links: [
+      {
+        label: "vLLM #48150",
+        href: "https://github.com/vllm-project/vllm/pull/48150",
+      },
       {
         label: "vLLM #43468",
         href: "https://github.com/vllm-project/vllm/pull/43468",
