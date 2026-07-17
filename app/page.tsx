@@ -221,8 +221,12 @@ const openSourceProjects: OpenSourceProject[] = [
       {
         label: "Architecture",
         description:
-          "Defined the backend configuration boundary and tier ownership for native KV offloading.",
+          "Defined a publisher-relative locality contract for filesystem and object-store tiers. Established backend configuration boundaries and tier ownership for native KV offloading.",
         links: [
+          {
+            label: "locality contract",
+            href: "https://github.com/vllm-project/vllm/pull/48281",
+          },
           {
             label: "config boundary",
             href: "https://github.com/vllm-project/vllm/pull/48150",
@@ -314,12 +318,16 @@ const experience = [
     role: "Software Engineering Intern",
     location: "Santa Clara, CA",
     bullets: [
-      "Defined a clean backend configuration boundary for vLLM native KV offloading. Moved cache-layout parsing into the connector and standardized the configuration passed to offloading backends.",
+      "Defined backend configuration and publisher-relative locality contracts for vLLM native KV offloading. Separated storage type from deployment topology while preserving backward compatibility.",
       "Built self-describing KV events across vLLM, Dynamo, and llm-d. Enabled external routers to track CPU-offloaded blocks and validated routing in normal-block and chunk modes.",
     ],
     paper: null,
     linksLabel: "Selected PRs",
     links: [
+      {
+        label: "vLLM #48281",
+        href: "https://github.com/vllm-project/vllm/pull/48281",
+      },
       {
         label: "vLLM #48150",
         href: "https://github.com/vllm-project/vllm/pull/48150",
