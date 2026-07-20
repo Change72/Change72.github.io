@@ -250,6 +250,10 @@ const openSourceProjects: OpenSourceProject[] = [
             label: "FS/OBJ events",
             href: "https://github.com/vllm-project/vllm/pull/47923",
           },
+          {
+            label: "tier promotions",
+            href: "https://github.com/vllm-project/vllm/pull/48679",
+          },
         ],
       },
     ],
